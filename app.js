@@ -30,6 +30,16 @@ function onReady() {
     //empty the input
     newToDoText.value='';
 
+    //create a new input
+    let deleteButton = document.createElement('input');
+
+    //set the input type to button
+    deleteButton.type = "button";
+    deleteButton.value = "delete";
+
+    //attach button to the li
+    newLi.appendChild(deleteButton);
+
   });
 
 }
