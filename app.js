@@ -33,6 +33,10 @@ function onReady() {
     //create a new input
     let deleteButton = document.createElement('input');
 
+    deleteButton.addEventListener('click', event => {
+      toDoList.removeChild(newLi);
+    });
+
     //set the input type to button
     deleteButton.type = "button";
     deleteButton.value = "delete";
