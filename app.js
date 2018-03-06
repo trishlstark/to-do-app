@@ -21,15 +21,16 @@ function onReady() {
       const toDoList = document.getElementById('toDoList');
       toDoList.textContent='';
 
+      let deleteButton = document.createElement('input');
+              deleteButton.type = "button";
+              deleteButton.value = "delete";
+
+
       toDos.forEach(function(toDo){
         const newLi = document.createElement('li');
 
         const checkbox = document.createElement('input');
         checkbox.type = "checkbox";
-
-        let deleteButton = document.createElement('input');
-        deleteButton.type = "button";
-        deleteButton.value = "delete";
 
         newLi.textContent = toDo.title;
 
@@ -37,6 +38,13 @@ function onReady() {
         newLi.appendChild(checkbox);
         newLi.appendChild(deleteButton);
       });
+
+      deleteButton.addEventListener ('click', event => {
+        event.preventDefault();
+        deleteToDo(toDos.id);
+        renderTheUI();
+      });
+
   }
 
   function deleteToDo (id){
@@ -48,16 +56,6 @@ function onReady() {
     createNewToDo();
     newToDoText.value = '';
   });
-
-  renderTheUI();
-
-  deleteButton.addEventListener ('click', event => {
-    event.preventDefault();
-    deleteToDo(toDo.id);
-    renderTheUI();
-  });
-
-
 
 }
 
